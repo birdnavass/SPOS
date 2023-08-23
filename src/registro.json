@@ -1,0 +1,194 @@
+[
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "verificacion",
+				"type": "bool"
+			}
+		],
+		"name": "EstadoActualizado",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "categoria",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "fechaInicio",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "fechaFin",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "lugarDeFormacion",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "tituloEstudio",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "verificacion",
+				"type": "bool"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "creatAtl",
+				"type": "uint256"
+			}
+		],
+		"name": "RegistroCreado",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "actualizarEstadoEstudio",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_categoria",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fechatInici",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_fechaFin",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_lugarDeFormacion",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_tituloEstudios",
+				"type": "string"
+			}
+		],
+		"name": "crearRegistro",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "estudios",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "categoria",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fechaInicio",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "fechaFin",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "lugarDeFormacion",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "tituloEstudio",
+				"type": "string"
+			},
+			{
+				"internalType": "bool",
+				"name": "verificacion",
+				"type": "bool"
+			},
+			{
+				"internalType": "uint256",
+				"name": "creatAtl",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "registroCounter",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]

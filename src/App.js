@@ -11,12 +11,15 @@ import Nuevo from './components/nuevo';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import smartContractRegistro from './registro.json';
 
 function App() {
   const [Metamask, setMetamask] = useState(false);
+
   const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
+  const [contract, setContract] = useState();
 
   const conectarWallet = async () => {
     if(typeof window.ethereum !== 'undefined'){
@@ -39,6 +42,13 @@ function App() {
 
         setBalance(balanceEth);
 
+        const contractInstance = new web3Instance.eth.Contract(
+          smartContractRegistro,
+          smartContractRegistro && "0x34D44DBc2c73B0eCb4bC738bfB850f92AaB89ae2"
+        );
+        setContract(contractInstance);
+        console.log("contractInstance ==>", contractInstance);
+
       } catch (error) {
         console.error(error);
       };
@@ -46,6 +56,20 @@ function App() {
       setMetamask(false);
     };
   };
+
+  const ListarRegistros = async () =>{
+    console.log("contract==>",contract);
+    if(contract) {
+      try{
+        const contadorRegistros = await contract.methods.registroCounter().call();
+        console.log("contadorRegistros ==>",contadorRegistros);
+      } catch (error) {
+        console.error('Error al actualizar valor:',error);
+      }
+    }
+  };
+
+useEffect(() => { ListarRegistros(); }, [contract]);
 
 
   useEffect(() => {
