@@ -52,13 +52,15 @@ const Productos = () => {
                             <table className="tftable">
 
                                 <thead>
-                                    <th>ID</th>
-                                    <th>Nombre</th>
-                                    <th>Descripcion</th>
-                                    <th>Existencias</th>
-                                    <th>Caducidad</th>
-                                    <th>Precio</th>
-                                    <th>Acciones</th>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>Descripcion</th>
+                                        <th>Existencias</th>
+                                        <th>Caducidad</th>
+                                        <th>Precio</th>
+                                        <th>Acciones</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
