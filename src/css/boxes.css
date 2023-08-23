@@ -1,0 +1,120 @@
+.marco{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 90px;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .3s;
+}
+
+.box{
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 90px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .3s;
+    text-decoration: none;
+    /*box-shadow: rgba(1, 1, 1, 0.20) 0px 0px 0px 2px, rgba(1, 1, 1, 1) 0px 0px 0px 0px;*/
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    font-weight: 900;
+    color: #000000;
+}
+.box:hover{
+    transition: .3s;
+}
+
+.box:active{
+    color: #ffffff;
+    background: #000000;
+    transition: .3s;
+}
+
+.C{width: 210px;}
+.P{width: 286px;}
+.L{width: 386px;} 
+.M{width: 589px;} /*Tamaños*/
+.MG{width: 892px;}
+.G{width: 1196px;}
+
+.box img{border-radius:inherit;}
+.box .fantasma{border-radius:inherit;}
+
+/*---Textos---*/
+.fantasma{
+    position: absolute;
+    display: flex;
+    color: white;
+    font-weight: 100;
+    font-size: 18px;
+    backdrop-filter: blur(8px) brightness(45%);
+    height: 100%;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    opacity: 1%;
+    transition: .3s;
+    top:0px;left:0px
+}
+.fantasma:hover{
+    opacity: 100%;
+    text-shadow: 0 0 3px #000000, 0 0 10px #000000;
+    transition: .3s;
+    
+}
+.titulos{
+    position:absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 100;
+    color:white;
+    backdrop-filter: blur(8px) brightness(40%);
+    text-shadow: 0 0 10px #000000, 0 0 5px #000000;
+}
+.centro{
+    display: grid;
+    place-items: center;
+}
+
+  .texto{
+    position:relative;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: 19px;
+    font-weight: 100;
+    z-index: 1;
+    }
+
+.pie-box{
+    display: flex;
+    padding: 15px;
+    width: 100%;
+    min-height: 80px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.pie-texto{
+    color: #030303;
+    font-size: 16px;
+    width: 150px;
+    font-weight: 700;
+}
+.titulo{
+    position:relative;
+    top: 0;
+    font-size: 2rem;
+    font-weight: 100;
+}

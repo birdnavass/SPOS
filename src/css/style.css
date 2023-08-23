@@ -1,0 +1,72 @@
+@import url(boxes.css);
+@import url(slider.css);
+@import url(table.css);
+@import url(form.css);
+@import url(menu.css);
+
+@font-face {
+    font-family: Robert;
+    src: url('Robert.woff2') format('woff2'), 
+      url('Robert.woff2') format('woff');
+  }
+
+*{
+    font-family: 'Robert', Helvetica, Arial, sans-serif;
+}
+
+body{
+    max-width: 1280px; 
+    margin: 0 auto; 
+    min-height: 100vh;
+    background-color:#242424;
+}
+/*---------MENU---------------------------------------------*/
+
+.porf{
+    height: 100%; width: 100%; object-fit: cover;
+}
+.porf2{
+    height: 100%; width: 100%; object-fit: contain;
+}
+button{ /*Resetea css de <button>*/
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+footer{
+    height:600px;
+    bottom:0;
+    width:1280px;
+    background-color: #030303;
+    color: darkgray;
+    padding: 20px;
+    text-align: center;
+    border-top: solid 8px #F2CA52;
+    box-sizing: border-box;/*corrige padding vs width*/
+    font-size: 22px;
+}
+#wrapper {
+    min-height: 75%;
+    background-color: #f2f2f2;
+    width: 1280px;
+    position: relative;/*https://gist.github.com/malexandersalazar/8b79d4f7ba55f86d5bd3f3032d926268*/
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+#content {
+    padding-bottom: 30px;
+}
+
+.container {
+  display: inline-flex;
+  width: 1280px;
+  padding-top: 30px;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap:18px;
+}
+

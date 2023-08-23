@@ -1,0 +1,22 @@
+.formulario{
+    background: #fff;
+    width: 285px;
+    padding: 34px;
+    color: #282c34;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  }
+  
+  input,textarea{
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    border: 3px solid #ccc;
+    box-sizing: border-box;
+    transition: 0.2s linear;
+    margin: 7px 0 7px 0;
+    border-radius: 7px;
+  }
+  input:focus,textarea:focus{
+      color: #333;
+      border: 3px solid #44c4e7;
+    }

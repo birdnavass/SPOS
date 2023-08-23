@@ -1,0 +1,109 @@
+@import url("./css/boxes.css");
+@import url("./css/table.css");
+@import url("./css/form.css");
+@import url("./css/menu.css");
+
+a{
+  text-decoration: none;
+}
+
+body{
+    margin: 0 auto; 
+    min-height: 100vh;
+    background-color:#242424;
+}
+
+.porf{
+    height: 100%; width: 100%; object-fit: cover;
+}
+.porf2{
+    height: 100%; width: 100%; object-fit: contain;
+}
+button{ /*Resetea css de <button>*/
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+footer{
+    height:600px;
+    bottom:0;
+    width:1280px;
+    background-color: #030303;
+    color: darkgray;
+    padding: 20px;
+    text-align: center;
+    border-top: solid 8px #F2CA52;
+    box-sizing: border-box;/*corrige padding vs width*/
+    font-size: 22px;
+}
+
+#wrapper {
+    min-height: 75%;
+    background-color: #f2f2f2;
+    width: 1280px;
+    position: relative;/*https://gist.github.com/malexandersalazar/8b79d4f7ba55f86d5bd3f3032d926268*/
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+#content {
+    padding-bottom: 30px;
+}
+
+.container {
+  display: inline-flex;
+  width: 1280px;
+  padding-top: 30px;
+  flex-wrap:wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap:18px;
+}
+
+.icon{
+  width: 28px;
+}
+.flex-row{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap:8px;
+}
+.contenedor{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.centro{
+  display: grid;
+  place-content: center;
+}
+
+
+.boton{
+    cursor: pointer;
+    background: #44c4e7;
+    width: 100%;
+    padding: 12px;
+    border: 0;
+    color: #fff;
+    font-family: "Roboto";
+    font-size: 19px;
+    font-weight: 400;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+.boton:hover {
+      background: #369cb8;
+}
+.boton:active {
+  background: #030303;
+}
+

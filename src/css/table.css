@@ -1,0 +1,32 @@
+.tftable {
+    table-layout: fixed;
+    font-size:12px;
+    color:#333333;
+    width:100%;
+    border-width: 1px;
+    border-color: #efefef;
+    border-collapse: collapse;
+    
+    text-align: center;
+}
+.tftable th {
+    font-size:15px;
+    background-color:#2C3E50;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #729ea5;
+    width: 50px;
+    word-wrap: break-word;
+    color: white;
+}
+.tftable tr {background-color:#ffffff;}
+.tftable td {
+    font-size:14px;
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    word-wrap: break-word;
+    border-color: #729ea5;}
+.tftable tr:hover {background-color:#e2e2e2;
+}
