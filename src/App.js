@@ -106,7 +106,9 @@ useEffect(() => { ListarRegistros(); }, [contract]);
               </div>
             </>
           ):(
-            <div>Instala metamask</div>
+            <div>Instala metamask
+              
+            </div>
           )}
 
         </div>

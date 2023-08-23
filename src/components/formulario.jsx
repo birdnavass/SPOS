@@ -1,8 +1,8 @@
 const Formulario = () => {
     return (
         <div>
-            <h2>Formulario</h2>
             <form className="formulario">
+            <h2>Formulario</h2>
                 <label>Lugar de formacion</label>
                 <input type="text" name="formacion" required></input><br></br>
                 <label>Categoria</label>
