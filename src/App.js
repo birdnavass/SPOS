@@ -64,6 +64,13 @@ function App() {
       try{
         const contadorRegistros = await contract.methods.registroCounter().call();
         console.log("contadorRegistros ==>",contadorRegistros);
+
+        for (let i = 0; i < contadorRegistros; i++) {
+          const inforestudio = await contract.methods.estudios(i).call();
+          console.log(inforestudio);
+          
+        }
+
       } catch (error) {
         console.error('Error al actualizar valor:',error);
       }
