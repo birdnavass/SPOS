@@ -8,6 +8,7 @@ import Caja from './components/caja';
 import Recibos from './components/recibos';
 import Control from './components/control';
 import Nuevo from './components/nuevo';
+import Inicio from './components/inicio';
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
@@ -101,6 +102,8 @@ useEffect(() => { ListarRegistros(); }, [contract]);
                     <Route path="/caja" element={<Caja />} />
                     <Route path="/recibos" element={<Recibos />} />
                     <Route path="/control" element={<Control />} />
+                    <Route path="/control" element={<Control />} />
+                    <Route path="/inicio" element={<Inicio />} />
                 </Routes>
                 
               </div>

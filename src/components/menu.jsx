@@ -30,7 +30,7 @@ const Menu = (props) => {
                 <div className='contenedor'>
                 
                     <ul className="menu">
-                        <li><Link  to="/">Inicio</Link></li>
+                        <li><Link  to="/inicio">Inicio</Link></li>
                         <li><Link  to="/menu">Menu</Link></li>
                         <li><Link  to="/form">Formulario</Link></li>
                     </ul>
