@@ -7,8 +7,9 @@ import Ventas from './components/ventas';
 import Caja from './components/caja';
 import Recibos from './components/recibos';
 import Control from './components/control';
-import Nuevo from './components/nuevo';
 import Inicio from './components/inicio';
+import Registros from './components/registros';
+
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
@@ -16,11 +17,11 @@ import smartContractRegistro from './registro.json';
 
 function App() {
   const [Metamask, setMetamask] = useState(false);
-
   const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
   const [contract, setContract] = useState();
+  const [ListarInformacionEstudios, setListarInformacionEstudios] = useState([]);
 
   const conectarWallet = async () => {
     if(typeof window.ethereum !== 'undefined'){
@@ -63,13 +64,31 @@ function App() {
     if(contract) {
       try{
         const contadorRegistros = await contract.methods.registroCounter().call();
-        console.log("contadorRegistros ==>",contadorRegistros);
+        //console.log("contadorRegistros ==>",contadorRegistros);
+
+        let arrayEstudio = [];
 
         for (let i = 0; i < contadorRegistros; i++) {
           const inforestudio = await contract.methods.estudios(i).call();
-          console.log(inforestudio);
+          //console.log(inforestudio);
           
-        }
+          if (inforestudio.categoria != "") {
+            const estudio = {
+              categoria: inforestudio.categoria,
+              creatAtl: inforestudio.creatAtl,
+              fechaFin: inforestudio.fechaFin,
+              fechaInicio: inforestudio.fechaInicio,
+              id: inforestudio.id,
+              lugarDeFormacion: inforestudio.lugarDeFormacion,
+              tituloEstudio: inforestudio.tituloEstudio,
+              verificacion: inforestudio.verificacion,
+            };
+            //console.log(estudio);
+            arrayEstudio.push(estudio);
+          }
+        };
+        //console.log(arrayEstudio);
+        setListarInformacionEstudios(arrayEstudio);
 
       } catch (error) {
         console.error('Error al actualizar valor:',error);
@@ -102,7 +121,7 @@ useEffect(() => { ListarRegistros(); }, [contract]);
               <div className="centro">
 
                 <Routes>
-                    <Route path="/form" element={<Formulario />} />
+                    <Route path="/form" element={<><Formulario contrato ={contract} direccion = {account} /><Registros mostrarListados={ListarInformacionEstudios}/></>} />
                     <Route path="/menu" element={<Menus />} />
                     <Route path="/productos" element={<Productos />} />
                     <Route path="/ventas" element={<Ventas />} />
