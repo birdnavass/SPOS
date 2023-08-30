@@ -2,10 +2,10 @@ import icoeth from './img/etereo.png';
 import icomm from './img/metamask.png';
 import Formulario from './formulario';
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link
 } from "react-router-dom";
 
 const Menu = (props) => {
@@ -15,13 +15,21 @@ const Menu = (props) => {
 
                 <div className='contenedor'>
 
-                    <div className="logo">Blockchain</div>
+                    <div className="logo">SivarP0$</div>
 
                     <ul className="menu">
-                        <button onClick={props.conectarWallet} className="boton" value={props.account}>Conectar wallet</button>
-                    </ul>
-                  <ul className="menu">
-                       <p>Bladimir</p>
+                        {props.direccion ? (<></>) : (<><button onClick={props.conectarWallet} className="boton" value={props.account}>Conectar wallet</button></>)}
+
+                        {props.direccion ? (<><table>
+                        <tbody>
+                            <tr>
+                                <td className='flex-row'><img className='icon' src={icomm}></img> {props.direccion}</td>
+                            </tr>
+                            <tr>
+                                <td className='flex-row'><img src={icoeth}></img> {props.saldo} ETH</td>
+                            </tr>
+                        </tbody>
+                    </table></>) : (<></>)}
                     </ul>
 
                 </div>
@@ -31,23 +39,14 @@ const Menu = (props) => {
             <div className="navbarr">
 
                 <div className='contenedor'>
-                
+
                     <ul className="menu">
-                        <li><Link  to="/inicio">Inicio</Link></li>
-                        <li><Link  to="/menu">Menu</Link></li>
-                        <li><Link  to="/form">Formulario</Link></li>
+                        <li><Link to="/inicio">Inicio</Link></li>
+                        <li><Link to="/menu">Menu</Link></li>
+                        <li><Link to="/form">Formulario</Link></li>
                     </ul>
+
                     
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td className='flex-row'><img className='icon' src={icomm}></img> {props.direccion}</td>
-                            </tr>
-                            <tr>
-                                <td className='flex-row'><img  src={icoeth}></img> {props.saldo} ETH</td>
-                            </tr>
-                        </tbody>
-                    </table>
 
                 </div>
             </div>
