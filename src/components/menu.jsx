@@ -20,6 +20,9 @@ const Menu = (props) => {
                     <ul className="menu">
                         <button onClick={props.conectarWallet} className="boton" value={props.account}>Conectar wallet</button>
                     </ul>
+                  <ul className="menu">
+                       <p>Bladimir</p>
+                    </ul>
 
                 </div>
 
