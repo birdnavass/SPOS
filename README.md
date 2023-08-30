@@ -1,5 +1,10 @@
-Desarrollo de una plataforma de punto
-de venta con POS virtual y billetera en LACChain para
-el comercio.
-La plataforma permitirá a los comercios realizar transacciones digitales, gestionar inventarios y
-aceptar pagos con criptomonedas a través de una interfaz fácil de usar.
+## Desarrollo de una Plataforma de Punto de Venta con POS Virtual y Billetera en LACChain para el Comercio
+
+La plataforma permitirá a los comercios:
+
+- Realizar transacciones digitales
+- Gestionar inventarios
+- Aceptar pagos con criptomonedas
+
+Todo esto a través de una interfaz fácil de usar.
+
