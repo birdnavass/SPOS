@@ -11,7 +11,7 @@ import {
 const Menu = (props) => {
     return (
         <div>
-            <div className="navbar">
+            <div className="bg-gray-[#333] text-white py-5">
 
                 <div className='contenedor'>
 
@@ -36,14 +36,14 @@ const Menu = (props) => {
 
             </div>
 
-            <div className="navbarr">
+            <div className="">
 
-                <div className='contenedor'>
+                <div className='bg-[#1d1d1d]'>
 
-                    <ul className="menu">
-                        <li><Link to="/inicio">Inicio</Link></li>
-                        <li><Link to="/menu">Menu</Link></li>
-                        <li><Link to="/form">Formulario</Link></li>
+                    <ul className="flex gap-5 p-4 max-w-[90%] mx-auto text-white font-medium">
+                        <li><Link className='hover:bg-[#369cb8] p-4' to="/inicio">Inicio</Link></li>
+                        <li><Link className='hover:bg-[#369cb8] p-4'to="/menu">Menu</Link></li>
+                        <li><Link className='hover:bg-[#369cb8] p-4'to="/form">Formulario</Link></li>
                     </ul>
 
                     
