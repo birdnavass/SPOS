@@ -87,7 +87,7 @@ footer{
 }
 
 
-.boton{
+/*.boton{
     cursor: pointer;
     background: #44c4e7;
     width: 100%;
@@ -99,7 +99,7 @@ footer{
     font-weight: 400;
     box-sizing: border-box;
     border-radius: 4px;
-}
+}*/
 .boton:hover {
       background: #369cb8;
 }
