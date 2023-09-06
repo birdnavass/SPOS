@@ -1,0 +1,204 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_nombre",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_descripcion",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_existencias",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "_caducidad",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_precio",
+				"type": "uint256"
+			}
+		],
+		"name": "agregarProducto",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "payable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "comprador",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nombreProducto",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "cantidadComprada",
+				"type": "uint256"
+			}
+		],
+		"name": "CompraProducto",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productoId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_cantidad",
+				"type": "uint256"
+			}
+		],
+		"name": "comprarProducto",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "nombre",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "descripcion",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "existencias",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "caducidad",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "precio",
+				"type": "uint256"
+			}
+		],
+		"name": "ProductoAgregado",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "contadorProductos",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"name": "nombreProductoRegistrado",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "Productos",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "nombre",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "descripcion",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "existencias",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "caducidad",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "precio",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "propietario",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
