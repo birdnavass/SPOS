@@ -23,7 +23,7 @@ const Registros = (props) => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {/* {props.mostrarListados.map((item) => (
+                                    {props.mostrarListados.map((item) => (
                                         <tr key={item.id}>
                                             <td>{item.id}</td>
                                             <td>{item.lugarDeFormacion}</td>
@@ -32,7 +32,7 @@ const Registros = (props) => {
                                             <td>{item.fechaInicio}</td>
                                             <td>{item.fechaFin}</td>
                                         </tr>
-                                    ))} */}
+                                    ))}
                                 </tbody>
                             </table>
                         </div>

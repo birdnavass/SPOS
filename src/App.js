@@ -46,7 +46,7 @@ function App() {
 
         const contractInstance = new web3Instance.eth.Contract(
           smartContractRegistro,
-          smartContractRegistro && "0xa9d281dA3B02DF2ffc8A1955c45d801B5726661D"
+          smartContractRegistro && "0xD6e6b2d290b343cd8B2A574FB0bF192E94D8A8e3"
         );
         setContract(contractInstance);
         // console.log("contractInstance ==>", contractInstance);
@@ -59,21 +59,20 @@ function App() {
   };
 
   const ListarRegistros = async () => {
-    // console.log("contract==>", contract);
+    console.log("contract==>", contract);
     if (contract) {
       try {
-        const productosRegistrados = await contract.methods
-          .contadorProductos()
+        const productosRegistrados = await contract.methods.contadorProductos()
           .call();
         //console.log("contadorRegistros ==>",contadorRegistros);
 
         let arrayProductosRegistrados = [];
 
         for (let i = 0; i <= productosRegistrados; i++) {
-          const infoProductos = await contract.methods.productos(i).call();
+          const infoProductos = await contract.methods.Productos(i).call();
           //console.log(inforestudio);
 
-          if (infoProductos.nombres != "") {
+          if (infoProductos.nombres !== "") { 
             const producto = {
               nombre: infoProductos.nombre,
               descripcion: infoProductos.descripcion,
@@ -134,7 +133,7 @@ function App() {
                   }
                 />
                 <Route path="/menu" element={<Menus />} />
-                <Route path="/productos" element={<Productos mostrarListados={ListarInformacionEstudios} />} />
+                <Route path="/productos" element={<Productos conectarWallet={conectarWallet} mostrarListados={ListarInformacionEstudios} />} />
                 <Route path="/ventas" element={<Ventas />} />
                 <Route path="/caja" element={<Caja />} />
                 <Route path="/recibos" element={<Recibos />} />

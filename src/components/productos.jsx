@@ -1,5 +1,44 @@
+import { useEffect, useState } from "react";
+
 const Productos = (props) => {
-    console.log("props en listar registros =>", props.mostrarListados);
+  console.log("props en listar registros =>", props.mostrarListados);
+
+  const registrarInformacion = async (e) => {
+    e.preventDefault();
+    //console.log(formulario);
+
+    try {
+      const result = await props.contract.methods
+        .agregarProducto(
+          producto.nombre,
+          producto.descripcion,
+          producto.existencias,
+          producto.caducidad,
+          producto.precio)
+        .send({ from: props.account });
+      console.log(result);
+      console.log("a")
+
+    } catch (error) {
+      console.error(error);
+      console.log("aaa")
+    }
+  };
+
+  const estadoInicialProducto = {
+    nombre: "",
+    descripcion: "",
+    existencias: "",
+    caducidad: "",
+    precio: "",
+  };
+
+  const ManejarFormulario = ({ target: { name, value } }) => {
+    setFormulario({ ...producto, [name]: value });
+  };
+
+  const [producto, setFormulario] = useState(estadoInicialProducto);
+
 
   return (
     <div>
@@ -16,7 +55,7 @@ const Productos = (props) => {
             <div className="box G texto">
               <div className="titulo centro">INGRESAR</div>
 
-              <form>
+              <form onSubmit={registrarInformacion}>
                 <table className="tftable">
                   <thead>
                     <tr>
@@ -30,33 +69,41 @@ const Productos = (props) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {/* {props.mostrarListados.map((item) => (
-                      <tr>
-                        <td>
-                          <input type="text" name="nombre" />
-                        </td>
-                        <td>
-                          <input type="text" name="descripcion" />
-                        </td>
-                        <td>
-                          <input type="text" name="existencias" />
-                        </td>
-                        <td>
-                          <input type="text" name="caducidad" />
-                        </td>
-                        <td>
-                          <input type="text" name="precio" />
-                        </td>
-                        <td>
-                          <input type="text" name="foto" />
-                        </td>
-                        <td>
-                          <button className="boton" type="submit">
-                            AÑADIR
-                          </button>
-                        </td>
-                      </tr>
-                    ))} */}
+                    {/* {props.mostrarListados.map((item) => ( */}
+                    <tr>
+                      <td>
+                        <input type="text" id="nombre" name="nombre" onChange={ManejarFormulario}
+                          value={producto.nombre} />
+                      </td>
+                      <td>
+                        <input type="text" id="descripcion" name="descripcion" onChange={ManejarFormulario}
+                          value={producto.descripcion} />
+                      </td>
+                      <td>
+                        <input type="text" id="existencias" name="existencias" onChange={ManejarFormulario}
+                          value={producto.existencias} />
+
+                      </td>
+                      <td>
+                        <input type="text" id="caducidad" name="caducidad" onChange={ManejarFormulario}
+                          value={producto.caducidad} />
+
+                      </td>
+                      <td>
+                        <input type="text" id="precio" name="precio" onChange={ManejarFormulario}
+                          value={producto.precio} />
+
+                      </td>
+                      <td>
+                        <input type="text" name="foto" />
+                      </td>
+                      <td>
+                        <button className="boton" type="submit">
+                          AÑADIR
+                        </button>
+                      </td>
+                    </tr>
+                    {/* ))} */}
                   </tbody>
                 </table>
               </form>
