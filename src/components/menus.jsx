@@ -7,23 +7,19 @@ import {
 
 const Menus = () => {
     return (
-    <div>
-
-        <div id="wrapper">
-            <div id="content">
-                <div className="container">
-
-                        <Link to="/productos"><div className="box P texto centro">PRODUCTOS</div></Link>
-                        <Link to="/ventas"><div className="box P texto centro">VENTAS</div></Link>
-                        <Link to="/caja"><div className="box P texto centro">CAJA</div></Link>
-                        <Link to="/recibos"><div className="box P texto centro">RECIBOS</div></Link>
-                        <Link to="/control"><div className="box P texto centro">PANEL DE CONTROL</div></Link>
-                        <Link to=""><div className="box P texto centro">CERRAR SESION</div></Link>
-
-                </div>
+    <div class="flex flex-col h-screen bg-white">
+        <div class="flex-1">
+          <div class="container mx-auto p-4">
+            <div class="grid grid-cols-3 gap-4">
+              <Link to="/productos"><div class="text-center bg-[#7182C4] text-black p-2 rounded p-10">PRODUCTOS</div></Link>
+              <Link to="/ventas"><div class="text-center bg-[#7182C4] text-black p-2 rounded p-10">VENTAS</div></Link>
+              <Link to="/caja"><div class="text-center bg-[#7182C4] text-black p-2 rounded p-10">CAJA</div></Link>
+              <Link to="/recibos"><div class="text-center bg-[#7182C4] text-black p-2 rounded p-10">RECIBOS</div></Link>
+              <Link to="/control"><div class="text-center bg-[#7182C4] text-black p-2 rounded p-10">PANEL DE CONTROL</div></Link>
+              <Link to=""><div class="text-center bg-[#7182C4] text-black p-2 rounded p-10">CERRAR SESION</div></Link>
             </div>
+          </div>
         </div>
-
     </div>
     )
 };
