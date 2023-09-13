@@ -1,30 +1,12 @@
 import { useEffect, useState } from "react";
+import AgregarProducto from "./productsUI/agregarProductos";
 
-const Productos = (props) => {
-  console.log("props en listar registros =>", props.mostrarListados);
+import Swal from "sweetalert2";
+import MostrarProductos from "./productsUI/mostrarProductos";
 
-  const registrarInformacion = async (e) => {
-    e.preventDefault();
-    //console.log(formulario);
+import "../css/productos.css";
 
-    try {
-      const result = await props.contract.methods
-        .agregarProducto(
-          producto.nombre,
-          producto.descripcion,
-          producto.existencias,
-          producto.caducidad,
-          producto.precio)
-        .send({ from: props.account });
-      console.log(result);
-      console.log("a")
-
-    } catch (error) {
-      console.error(error);
-      console.log("aaa")
-    }
-  };
-
+const Productos = () => {
   const estadoInicialProducto = {
     nombre: "",
     descripcion: "",
@@ -33,124 +15,110 @@ const Productos = (props) => {
     precio: "",
   };
 
+  const [producto, setFormulario] = useState(estadoInicialProducto); // Initialize with the initial state
+
+  const [productos, setProductos] = useState([]);
+
   const ManejarFormulario = ({ target: { name, value } }) => {
     setFormulario({ ...producto, [name]: value });
   };
 
-  const [producto, setFormulario] = useState(estadoInicialProducto);
+  const handleAddProduct = (e) => {
+  
+    e.preventDefault();
+  
+    // Required fields check
+    if (
+      !producto.nombre ||
+      !producto.descripcion ||
+      !producto.existencias ||
+      !producto.caducidad ||
+      !producto.precio
+    ) {
+      Swal.fire({
+        title: "Error",
+        text: "Por favor, complete todos los campos.",
+        icon: "warning",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+  
+    // Numeric fields validation
+    if (isNaN(Number(producto.existencias)) || isNaN(Number(producto.precio))) {
+      Swal.fire({
+        title: "Error",
+        text: "Los campos Existencias y Precio deben ser números válidos.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+  
+    // Check for negative numbers
+    if (Number(producto.existencias) < 0 || Number(producto.precio) < 0) {
+      Swal.fire({
+        title: "Error",
+        text: "Los campos Existencias y Precio no pueden ser números negativos.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+      return;
+    }
+  
+    // If all validations pass, add the product and reset the form
+    setProductos([...productos, producto]);
+    setFormulario(estadoInicialProducto);
+  };
 
+  const handleDeleteProduct = (index) => {
+    const updatedProductos = [...productos];
+    updatedProductos.splice(index, 1);
+    setProductos(updatedProductos);
+  };
+
+  const [editMode, setEditMode] = useState(false);
+  const [editIndex, setEditIndex] = useState(-1);
+
+  const handleEdit = (index) => {
+    setEditMode(true);
+    setEditIndex(index);
+  };
+
+  const handleEditChange = (e, field) => {
+    const updatedProductos = [...productos];
+    updatedProductos[editIndex][field] = e.target.value;
+    setProductos(updatedProductos);
+  };
+
+  const handleSaveEdit = (index) => {
+    setEditMode(false);
+    setEditIndex(-1);
+    // You can save changes to your backend or update state as needed
+  };
 
   return (
-    <div>
-      <div id="wrapper">
-        <div id="content">
-          <div className="container">
-            <div className="box G texto centro">
-              En esta sección, los comerciantes podrán administrar su
-              inventario. Pueden agregar nuevos productos, editar los existentes
-              (como cambiar el precio o la descripción) y eliminar productos que
-              ya no ofrecen.
-            </div>
-
-            <div className="box G texto">
-              <div className="titulo centro">INGRESAR</div>
-
-              <form onSubmit={registrarInformacion}>
-                <table className="tftable">
-                  <thead>
-                    <tr>
-                      <th>NOMBRE</th>
-                      <th>DESCRIPCION</th>
-                      <th>EXISTENCIAS</th>
-                      <th>CADUCIDAD</th>
-                      <th>PRECIO</th>
-                      <th>FOTO (URL)</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {/* {props.mostrarListados.map((item) => ( */}
-                    <tr>
-                      <td>
-                        <input type="text" id="nombre" name="nombre" onChange={ManejarFormulario}
-                          value={producto.nombre} />
-                      </td>
-                      <td>
-                        <input type="text" id="descripcion" name="descripcion" onChange={ManejarFormulario}
-                          value={producto.descripcion} />
-                      </td>
-                      <td>
-                        <input type="text" id="existencias" name="existencias" onChange={ManejarFormulario}
-                          value={producto.existencias} />
-
-                      </td>
-                      <td>
-                        <input type="text" id="caducidad" name="caducidad" onChange={ManejarFormulario}
-                          value={producto.caducidad} />
-
-                      </td>
-                      <td>
-                        <input type="text" id="precio" name="precio" onChange={ManejarFormulario}
-                          value={producto.precio} />
-
-                      </td>
-                      <td>
-                        <input type="text" name="foto" />
-                      </td>
-                      <td>
-                        <button className="boton" type="submit">
-                          AÑADIR
-                        </button>
-                      </td>
-                    </tr>
-                    {/* ))} */}
-                  </tbody>
-                </table>
-              </form>
-            </div>
-
-            <div className="box G texto">
-              <div className="titulo centro">INVENTARIO</div>
-
-              <table className="tftable">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripcion</th>
-                    <th>Existencias</th>
-                    <th>Caducidad</th>
-                    <th>Precio</th>
-                    <th>Acciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>16</td>
-                    <td>Bateria</td>
-                    <td>Deposito portatil de energia.</td>
-                    <td>63</td>
-                    <td>16/15/2025</td>
-                    <td>3.60</td>
-                    <td>
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAeFBMVEUAAADnTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDx+VWpeAAAAJ3RSTlMAAQIFCAkPERQYGi40TVRVVlhZaHR8g4WPl5qdtb7Hys7R19rr7e97kMnEAAAAaklEQVQYV7XOSQKCMBQE0UpQwfkrSJwCKmDf/4YuVOIF7F29VQOA897xs50k1aknmnmfPRfvWptdBjOz29Vs46B6aFx/cEBIEAEIamhWc3EcIRKXhQj/hX47nGvt7x8o07ETANP2210OvABwcxH233o1TgAAAABJRU5ErkJggg==" />
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>bla</td>
-                    <td>bla</td>
-                    <td>bla</td>
-                    <td>bla</td>
-                    <td>bla</td>
-                    <td>bla</td>
-                    <td>
-                      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAeFBMVEUAAADnTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDznTDx+VWpeAAAAJ3RSTlMAAQIFCAkPERQYGi40TVRVVlhZaHR8g4WPl5qdtb7Hys7R19rr7e97kMnEAAAAaklEQVQYV7XOSQKCMBQE0UpQwfkrSJwCKmDf/4YuVOIF7F29VQOA897xs50k1aknmnmfPRfvWptdBjOz29Vs46B6aFx/cEBIEAEIamhWc3EcIRKXhQj/hX47nGvt7x8o07ETANP2210OvABwcxH233o1TgAAAABJRU5ErkJggg==" />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+    <div id="wrapper">
+      <div id="content">
+        <div className="container">
+          <div className="box G texto">
+            <div className="titulo centro">INGRESAR</div>
+            <AgregarProducto
+              producto={producto}
+              onAddProduct={handleAddProduct}
+              onFormChange={ManejarFormulario}
+            />
           </div>
+          <MostrarProductos
+            productos={productos}
+            editMode={editMode}
+            editIndex={editIndex}
+            onEdit={handleEdit}
+            onEditChange={handleEditChange}
+            onSaveEdit={handleSaveEdit}
+            onDeleteProduct={handleDeleteProduct}
+            
+          />
         </div>
       </div>
     </div>

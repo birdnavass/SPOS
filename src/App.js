@@ -13,7 +13,6 @@ import Registros from "./components/registros";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import smartContractRegistro from "./components/contracts/pos.json";
 
 function App() {
   const [Metamask, setMetamask] = useState(false);
@@ -45,8 +44,8 @@ function App() {
         setBalance(balanceEth);
 
         const contractInstance = new web3Instance.eth.Contract(
-          smartContractRegistro,
-          smartContractRegistro && "0xD6e6b2d290b343cd8B2A574FB0bF192E94D8A8e3"
+          // smartContractRegistro,
+          // smartContractRegistro && "0xD6e6b2d290b343cd8B2A574FB0bF192E94D8A8e3"
         );
         setContract(contractInstance);
         // console.log("contractInstance ==>", contractInstance);
