@@ -1,0 +1,145 @@
+[33mcommit 659d5d46c4a96a150d7985946dc95af304e3593a[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: e1b936c c5a8238
+Author: Emerson Lopez <emer21983@gmail.com>
+Date:   Wed Sep 13 11:36:24 2023 -0600
+
+    Uniendo rama de Bladimir
+
+[33mcommit e1b936cbd7d646016c1458f0f7f53f7568365be6[m
+Merge: f2a14f0 975d94f
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Sep 13 09:46:49 2023 -0600
+
+    Uniendo rama de nueva funcionalidad con main
+
+[33mcommit 975d94f6f43837346e58405dc776ed0c0bea3182[m[33m ([m[1;31morigin/nueva-funcionalidad[m[33m)[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Tue Sep 12 23:44:04 2023 -0600
+
+    Separando productos en componentes
+
+[33mcommit c5a82380258ec82e5b59c341033e3b0bea0a847c[m[33m ([m[1;31morigin/bladimir-development[m[33m)[m
+Author: Bladimir Lopez <lopezhumbertbladimir425@gmail.com>
+Date:   Tue Sep 12 21:46:22 2023 -0600
+
+    Modifife la vista de la factura y agregue el framework Express
+
+[33mcommit f2a14f0c39b1981ac8d67e6800f478728f48e302[m
+Author: FranciscoRauda <raudamejia08@outlook.com>
+Date:   Tue Sep 12 13:59:36 2023 -0600
+
+    Añadi la barra de busqueda en productoss
+
+[33mcommit 7e0865faef03f8d198ed9e75dbd99b19e0ba1216[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Sep 6 14:53:58 2023 -0600
+
+    Avance
+
+[33mcommit c462ac3ffe3ea53144b3860dc54c49d466784e29[m
+Author: Bladimir Lopez en San Benito <lopezhumbertbladimir425@gmail.com>
+Date:   Wed Sep 6 09:13:00 2023 -0600
+
+    Modifique el menu donde aparece, producto, ventas, etc
+
+[33mcommit 4088751df0b2f167ad51efeabbc2c49a51bd619b[m
+Author: FranciscoRauda <raudamejia08@outlook.com>
+Date:   Tue Sep 5 20:00:31 2023 -0600
+
+    añadiestilos
+
+[33mcommit 5351add7abe9006dba5b867717acfde450ab4166[m
+Author: Ricardo Fuentes <ricardisimofuentes@hotmail.com>
+Date:   Tue Sep 5 19:47:06 2023 -0600
+
+    Contrato para agregar productos
+
+[33mcommit 54495bfbfb95b9536c845f8638a30cfb8d5520cb[m
+Author: FranciscoRauda <raudamejia08@outlook.com>
+Date:   Fri Sep 1 20:05:54 2023 -0600
+
+    instalacion de tailwind y ejemplo en menu.jsx
+
+[33mcommit e77206dee5cff326f281c172e8fff0e6e148997c[m
+Author: RicardoFv2 <108958986+RicardoFv2@users.noreply.github.com>
+Date:   Wed Aug 30 14:37:59 2023 -0600
+
+    Update README.md
+
+[33mcommit 27088c7ef86bedd4f33555439b59334a818b3c66[m
+Author: Fran Navas <128828405+birdnavass@users.noreply.github.com>
+Date:   Wed Aug 30 14:14:24 2023 -0600
+
+    Update README.md
+
+[33mcommit 5d39686480462b1c41581d961f11f3cf9a2127a8[m
+Author: Fran Navas <128828405+birdnavass@users.noreply.github.com>
+Date:   Wed Aug 30 14:13:12 2023 -0600
+
+    Update README.md
+
+[33mcommit 0d337b1e747e0223f20118ca9bbe27d89ce3ead5[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Aug 30 13:56:07 2023 -0600
+
+    Log de wallet corregido
+
+[33mcommit 8b24e329cf214e33dbd3b60e66f46a52ab913e74[m
+Author: Bladimir <85325348+HBladimirVL@users.noreply.github.com>
+Date:   Wed Aug 30 11:37:49 2023 -0600
+
+    Puse mi nombre en el menu
+
+[33mcommit 7d8d96ab4474acb2b3eea482ac198818152ff888[m
+Author: Miguel Arevalo <birdnavas@gmail.com>
+Date:   Tue Aug 29 13:43:33 2023 -0600
+
+    wallet 100%
+
+[33mcommit 2933fe704c637bd1865eb193771826613fc022e3[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Aug 23 14:43:59 2023 -0600
+
+    Contador registros meta mask
+
+[33mcommit bb186c5b57c25bff0701f41f4c31b4b1fbe43980[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Aug 23 11:39:37 2023 -0600
+
+    Creando pantalla de inicio
+
+[33mcommit 770cd2d96cbb223e00c39cc5e735a11a68db5058[m
+Author: Miguel <birdnavas@gmail.com>
+Date:   Wed Aug 23 08:42:12 2023 -0600
+
+    otro tr
+
+[33mcommit a4e56aca4d4ee72cdf95dc367014e2b67cf541b8[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Aug 23 08:36:50 2023 -0600
+
+    Formulario con Table row
+
+[33mcommit abce7b2846231552eeb1faf45b824a83fe713121[m
+Author: Ricardo <ricardisimofuentes@hotmail.com>
+Date:   Wed Aug 23 08:21:26 2023 -0600
+
+    Commit de formulario
+
+[33mcommit 93ef37c80d8f9e050807093e5633e7dde1cd81a3[m
+Author: Miguel <birdnavas@gmail.com>
+Date:   Wed Aug 23 08:01:59 2023 -0600
+
+    actulizacion a metamask en app.js
+
+[33mcommit 27b3736115c4dcbf0061b2c610d20b08347c31cc[m
+Author: Miguel <birdnavas@gmail.com>
+Date:   Wed Aug 23 07:52:32 2023 -0600
+
+    Pos
+
+[33mcommit 70c21cd4ee27f0741ea9db4666398fb5e51ebf15[m
+Author: Miguel <birdnavas@gmail.com>
+Date:   Wed Aug 23 07:51:35 2023 -0600
+
+    first commit
