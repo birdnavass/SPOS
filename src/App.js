@@ -13,7 +13,6 @@ import Registros from "./components/registros";
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import smartContractRegistro from "./registro.json";
 
 function App() {
   const [Metamask, setMetamask] = useState(false);
@@ -34,7 +33,6 @@ function App() {
         await window.ethereum.enable();
 
         const accounts = await web3Instance.eth.getAccounts();
-        const account = accounts[0]; //setea
         console.log(accounts[0]);
 
         setAccount(accounts[0]);
@@ -46,11 +44,11 @@ function App() {
         setBalance(balanceEth);
 
         const contractInstance = new web3Instance.eth.Contract(
-          smartContractRegistro,
-          smartContractRegistro && "0x34D44DBc2c73B0eCb4bC738bfB850f92AaB89ae2"
+          // smartContractRegistro,
+          // smartContractRegistro && "0xD6e6b2d290b343cd8B2A574FB0bF192E94D8A8e3"
         );
         setContract(contractInstance);
-        console.log("contractInstance ==>", contractInstance);
+        // console.log("contractInstance ==>", contractInstance);
       } catch (error) {
         console.error(error);
       }
@@ -63,34 +61,30 @@ function App() {
     console.log("contract==>", contract);
     if (contract) {
       try {
-        const contadorRegistros = await contract.methods
-          .registroCounter()
+        const productosRegistrados = await contract.methods.contadorProductos()
           .call();
         //console.log("contadorRegistros ==>",contadorRegistros);
 
-        let arrayEstudio = [];
+        let arrayProductosRegistrados = [];
 
-        for (let i = 0; i <= contadorRegistros; i++) {
-          const inforestudio = await contract.methods.estudios(i).call();
+        for (let i = 0; i <= productosRegistrados; i++) {
+          const infoProductos = await contract.methods.Productos(i).call();
           //console.log(inforestudio);
 
-          if (inforestudio.categoria != "") {
-            const estudio = {
-              categoria: inforestudio.categoria,
-              creatAtl: inforestudio.creatAtl,
-              fechaFin: inforestudio.fechaFin,
-              fechaInicio: inforestudio.fechaInicio,
-              id: inforestudio.id,
-              lugarDeFormacion: inforestudio.lugarDeFormacion,
-              tituloEstudio: inforestudio.tituloEstudio,
-              verificacion: inforestudio.verificacion,
+          if (infoProductos.nombres !== "") { 
+            const producto = {
+              nombre: infoProductos.nombre,
+              descripcion: infoProductos.descripcion,
+              existencias: infoProductos.existencias,
+              caducidad: infoProductos.caducidad,
+              precio: infoProductos.precio,
             };
             //console.log(estudio);
-            arrayEstudio.push(estudio);
+            arrayProductosRegistrados.push(producto);
           }
         }
         //console.log(arrayEstudio);
-        setListarInformacionEstudios(arrayEstudio);
+        setListarInformacionEstudios(arrayProductosRegistrados);
       } catch (error) {
         console.error("Error al actualizar valor:", error);
       }
@@ -133,11 +127,12 @@ function App() {
                     <>
                       <Formulario contrato={contract} direccion={account} />
                       <Registros mostrarListados={ListarInformacionEstudios} />
+                      {/* <Productos  /> */}
                     </>
                   }
                 />
                 <Route path="/menu" element={<Menus />} />
-                <Route path="/productos" element={<Productos />} />
+                <Route path="/productos" element={<Productos conectarWallet={conectarWallet} mostrarListados={ListarInformacionEstudios} />} />
                 <Route path="/ventas" element={<Ventas />} />
                 <Route path="/caja" element={<Caja />} />
                 <Route path="/recibos" element={<Recibos />} />

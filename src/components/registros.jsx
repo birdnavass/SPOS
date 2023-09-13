@@ -1,6 +1,6 @@
 const Registros = (props) => {
 
-    console.log("props en listar registros =>", props.mostrarListados);
+    // console.log("props en listar registros =>", props.mostrarListados);
 
     return (
         <div>

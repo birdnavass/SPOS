@@ -1,3 +1,5 @@
+import BarraBusqueda from "./searchBar/searchBar";
+
 const Caja = () => {
     return (
     <div>
@@ -9,6 +11,8 @@ const Caja = () => {
                     <div className="box G texto centro"> En esta parte, los comerciantes podrán procesar pagos de los clientes.
                         Aquí es donde se registrarían los productos que el cliente desea comprar, se calcularía el monto
                         total y se llevaría a cabo el proceso de pago.</div>
+
+                        <BarraBusqueda />
 
                     <div className="box G texto centro">
                         <div className="titulo centro">FACTURACION??</div>
