@@ -80,7 +80,7 @@ const AgregarProductos = (props) => {
                 />
               </td>
               <td>
-                <button className=" flex bg-[#FFD658] rounded-[10px] p-3 text-center text-lg font-sans font-medium" type="submit" >
+                <button className=" flex bg-[#FFD658] rounded-[10px] p-3 text-center text-lg font-sans font-medium pt-2 ml-9" type="submit" >
                   AÑADIR
                 </button>
               </td>
