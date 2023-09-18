@@ -6,7 +6,9 @@ import MostrarProductos from "./productsUI/mostrarProductos";
 
 import "../css/productos.css";
 
-const Productos = () => {
+const Productos = (props) => {
+
+
   const estadoInicialProducto = {
     nombre: "",
     descripcion: "",
@@ -23,56 +25,56 @@ const Productos = () => {
     setFormulario({ ...producto, [name]: value });
   };
 
-  const handleAddProduct = (e) => {
-    e.preventDefault();
-    console.log("Handling add product");
-    console.log("Current producto state:", producto);
+  // const handleAddProduct = (e) => {
+  //   e.preventDefault();
+  //   console.log("Handling add product");
+  //   console.log("Current producto state:", producto);
 
-    // Required fields check
-    if (
-      !producto.nombre ||
-      !producto.descripcion ||
-      !producto.existencias ||
-      !producto.caducidad ||
-      !producto.precio
-    ) {
-      Swal.fire({
-        title: "Error",
-        text: "Por favor, complete todos los campos.",
-        icon: "warning",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
+  //   // Required fields check
+  //   if (
+  //     !producto.nombre ||
+  //     !producto.descripcion ||
+  //     !producto.existencias ||
+  //     !producto.caducidad ||
+  //     !producto.precio
+  //   ) {
+  //     Swal.fire({
+  //       title: "Error",
+  //       text: "Por favor, complete todos los campos.",
+  //       icon: "warning",
+  //       confirmButtonText: "OK",
+  //     });
+  //     return;
+  //   }
 
-    // Numeric fields validation
-    if (isNaN(Number(producto.existencias)) || isNaN(Number(producto.precio))) {
-      Swal.fire({
-        title: "Error",
-        text: "Los campos Existencias y Precio deben ser números válidos.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
+  //   // Numeric fields validation
+  //   if (isNaN(Number(producto.existencias)) || isNaN(Number(producto.precio))) {
+  //     Swal.fire({
+  //       title: "Error",
+  //       text: "Los campos Existencias y Precio deben ser números válidos.",
+  //       icon: "error",
+  //       confirmButtonText: "OK",
+  //     });
+  //     return;
+  //   }
 
-    // Check for negative numbers
-    if (Number(producto.existencias) < 0 || Number(producto.precio) < 0) {
-      Swal.fire({
-        title: "Error",
-        text: "Los campos Existencias y Precio no pueden ser números negativos.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-      return;
-    }
+  //   // Check for negative numbers
+  //   if (Number(producto.existencias) < 0 || Number(producto.precio) < 0) {
+  //     Swal.fire({
+  //       title: "Error",
+  //       text: "Los campos Existencias y Precio no pueden ser números negativos.",
+  //       icon: "error",
+  //       confirmButtonText: "OK",
+  //     });
+  //     return;
+  //   }
 
-    // If all validations pass, add the product and reset the form
-    setProductos([...productos, producto]);
-    setFormulario(estadoInicialProducto);
+  //   // If all validations pass, add the product and reset the form
+  //   setProductos([...productos, producto]);
+  //   setFormulario(estadoInicialProducto);
 
-    console.log("Producto state after reset:", producto);
-  };
+  //   console.log("Producto state after reset:", producto);
+  // };
 
   const handleDeleteProduct = (index) => {
     const updatedProductos = [...productos];
@@ -100,20 +102,21 @@ const Productos = () => {
     // You can save changes to your backend or update state as needed
   };
 
+  // const createProduct = (productData) => {
+  //   return axios.post("/api/products", productData);
+  // };
+
   return (
     <div id="wrapper">
       <div id="content">
         <div className="container">
-            <div className="flex items-center justify-center text-black text-3xl font-bold mb-4">
-              INGRESAR
-            </div>
+          <AgregarProducto
+            producto={producto}
+            // onAddProduct={handleAddProduct}
+            onFormChange={ManejarFormulario}
+            
+          />
 
-            <AgregarProducto
-              producto={producto}
-              onAddProduct={handleAddProduct}
-              onFormChange={ManejarFormulario}
-            />
-          
           <MostrarProductos
             productos={productos}
             editMode={editMode}

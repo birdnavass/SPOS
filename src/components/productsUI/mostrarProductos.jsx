@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTrashCan,
@@ -6,114 +7,138 @@ import {
   faFileCircleCheck,
 } from "@fortawesome/free-solid-svg-icons";
 
+const MostrarProductos = (props) => {
+  const [productos, setProductos] = useState([]);
 
-const mostrarProductos = (props) => {
+  useEffect(() => {
+    // Realiza una llamada a la API para obtener los productos desde el servidor
+    fetch('http://localhost:3000/productos')
+      .then((response) => response.json())
+      .then((data) => {
+        setProductos(data); // Actualiza el estado con los datos de la base de datos
+      })
+      .catch((error) => {
+        console.error('Error al obtener productos: ' + error);
+      });
+  }, []);
 
   return (
-    <div className="box G texto">
-      <div className="titulo centro">INVENTARIO</div>
+    <>
+      <div className="flex items-center justify-center text-black text-3xl font-bold mb-4">
+        INVENTARIO
+      </div>
 
-      <table className="tftable">
+      <table className="table-auto w-full border-collapse">
         <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Existencias</th>
-            <th>Caducidad</th>
-            <th>Precio</th>
-            <th>Acciones</th>
+          <tr className="bg-[#3853DA] text-white">
+            <th className="py-2 text-lg">ID</th>
+            <th className="px-10 py-2 text-lg">NOMBRE</th>
+            <th className="px-8 py-2 text-lg">DESCRIPCION</th>
+            <th className="px-8 py-2 text-lg">EXISTENCIAS</th>
+            <th className="px-8 py-2 text-lg">CADUCIDAD</th>
+            <th className="px-10 py-2 text-lg">PRECIO</th>
+            <th className="py-2 text-lg">ACCIONES</th>
           </tr>
         </thead>
 
         <tbody>
-          {props.productos.map((product, index) => (
-            <tr key={index}>
-              <td>{index + 1}</td>
-              <td>
+          {productos.map((product, index) => (
+            <tr className=" text-black" key={index}>
+              <td className="px-4 py-2 border border-black">{index + 1}</td>
+              <td className="py-2 border border-black">
                 {props.editMode && props.editIndex === index ? (
                   <input
                     type="text"
-                    value={props.productos[index].nombre}
+                    value={productos[index].nombre}
                     onChange={(e) => props.onEditChange(e, "nombre")}
+                    className="py-2 text-sm"
                   />
                 ) : (
                   product.nombre
                 )}
               </td>
-              <td>
+              <td className="py-2 border border-black">
                 {props.editMode && props.editIndex === index ? (
                   <input
                     type="text"
-                    value={props.productos[index].descripcion}
+                    value={productos[index].descripcion}
                     onChange={(e) => props.onEditChange(e, "descripcion")}
+                    className="py-2 text-sm"
                   />
                 ) : (
                   product.descripcion
                 )}
               </td>
-              <td>
+              <td className="py-2 border border-black">
                 {props.editMode && props.editIndex === index ? (
                   <input
                     type="number"
-                    value={props.productos[index].existencias}
+                    value={productos[index].existencias}
                     onChange={(e) => props.onEditChange(e, "existencias")}
+                    className="py-2 text-sm"
                   />
                 ) : (
                   product.existencias
                 )}
               </td>
-              <td>
+              <td className="py-2 border border-black">
                 {props.editMode && props.editIndex === index ? (
                   <input
                     type="date"
-                    value={props.productos[index].caducidad}
+                    value={productos[index].caducidad}
                     onChange={(e) => props.onEditChange(e, "caducidad")}
+                    className="py-2 text-sm"
                   />
                 ) : (
                   product.caducidad
                 )}
               </td>
-              <td>
+              <td className="py-2 border border-black">
                 {props.editMode && props.editIndex === index ? (
                   <input
                     type="number"
-                    value={props.productos[index].precio}
+                    value={productos[index].precio}
                     onChange={(e) => props.onEditChange(e, "precio")}
+                    className="py-2 text-sm"
                   />
                 ) : (
                   product.precio
                 )}
               </td>
-              <td>
-                {props.editMode && props.editIndex === index ? (
+
+              <td className="py-2 border border-black">
+                <td className=" ">
+                  {props.editMode && props.editIndex === index ? (
+                    <button
+                      className=" bg-[#FFD658] rounded-[10px] p-4 text-lg "
+                      onClick={() => props.onSaveEdit(index)}
+                    >
+                      <FontAwesomeIcon icon={faFileCircleCheck} size="2xl" />
+                    </button>
+                  ) : (
+                    <button
+                      className="bg-[#FFD658] rounded-[10px] p-4 text-lg "
+                      onClick={() => props.onEdit(index)}
+                    >
+                      <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
+                    </button>
+                  )}
+                </td>
+                <td className="px-2 py-2 ">
                   <button
-                    className="botonEditarProductos"
-                    onClick={() => props.onSaveEdit(index)}
+                    className="bg-[#FFD658] rounded-[10px] p-4 text-lg "
+                    onClick={() => props.onDeleteProduct(index)}
                   >
-                    <FontAwesomeIcon icon={faFileCircleCheck} size="2xl" />
+                    <FontAwesomeIcon icon={faTrashCan} size="2xl" />
                   </button>
-                ) : (
-                  <button
-                    className="botonEditarProductos"
-                    onClick={() => props.onEdit(index)}
-                  >
-                    <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
-                  </button>
-                )}
-                <button
-                  className="botonEditarProductos"
-                  onClick={() => props.onDeleteProduct(index)}
-                >
-                  <FontAwesomeIcon icon={faTrashCan} size="2xl" />
-                </button>
+                </td>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-    </div>
+    </>
   );
 };
 
-export default mostrarProductos;
+export default MostrarProductos;
