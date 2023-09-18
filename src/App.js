@@ -19,6 +19,8 @@ function App() {
   const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState(null);
   const [balance, setBalance] = useState(null);
+  const [accountshow, setAccountshow] = useState(null);
+  const [balanceshow, setBalanceshow] = useState(null);
   const [contract, setContract] = useState();
   const [ListarInformacionEstudios, setListarInformacionEstudios] = useState(
     []
@@ -36,12 +38,14 @@ function App() {
         console.log(accounts[0]);
 
         setAccount(accounts[0]);
+        setAccountshow(accounts[0].slice(0, 6) + '...' + accounts[0].slice(-4));
 
         const balanceWei = await web3Instance.eth.getBalance(accounts[0]);
         const balanceEth = web3Instance.utils.fromWei(balanceWei, "ether");
         console.log(balanceEth);
 
         setBalance(balanceEth);
+        setBalanceshow(balanceEth.slice(0, 5));
 
         const contractInstance = new web3Instance.eth.Contract(
           // smartContractRegistro,
@@ -115,8 +119,8 @@ function App() {
           <>
             <Menu
               conectarWallet={conectarWallet}
-              direccion={account}
-              saldo={balance}
+              direccion={accountshow}
+              saldo={balanceshow}
             ></Menu>
 
             <div className="centro">
