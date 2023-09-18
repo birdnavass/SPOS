@@ -8,7 +8,7 @@ import Caja from "./components/caja";
 import Recibos from "./components/recibos";
 import Control from "./components/control";
 import Inicio from "./components/inicio";
-import Registros from "./components/registros";
+import smartContractRegistro from "./registro.json";
 
 import { useEffect, useState } from "react";
 import Web3 from "web3";
@@ -22,9 +22,9 @@ function App() {
   const [accountshow, setAccountshow] = useState(null);
   const [balanceshow, setBalanceshow] = useState(null);
   const [contract, setContract] = useState();
-  const [ListarInformacionEstudios, setListarInformacionEstudios] = useState(
-    []
-  );
+  const [Gerente, setGerente] = useState();
+  const [Cajero, setCajero] = useState();
+  const [ListarInformacion, setListarInformacion] = useState([]);
 
   const conectarWallet = async () => {
     if (typeof window.ethereum !== "undefined") {
@@ -48,8 +48,8 @@ function App() {
         setBalanceshow(balanceEth.slice(0, 5));
 
         const contractInstance = new web3Instance.eth.Contract(
-          // smartContractRegistro,
-          // smartContractRegistro && "0xD6e6b2d290b343cd8B2A574FB0bF192E94D8A8e3"
+          smartContractRegistro,
+          smartContractRegistro && "0xa067b8b63e809eCdDdD51a99d255100551e28F42"
         );
         setContract(contractInstance);
         // console.log("contractInstance ==>", contractInstance);
@@ -62,35 +62,89 @@ function App() {
   };
 
   const ListarRegistros = async () => {
-    console.log("contract==>", contract);
+
     if (contract) {
       try {
-        const productosRegistrados = await contract.methods.contadorProductos()
-          .call();
-        //console.log("contadorRegistros ==>",contadorRegistros);
+        const taskCounter = await contract.methods.taskCounter().call();
 
-        let arrayProductosRegistrados = [];
+        let arrayTarea = [];
 
-        for (let i = 0; i <= productosRegistrados; i++) {
-          const infoProductos = await contract.methods.Productos(i).call();
-          //console.log(inforestudio);
+        for (let i = 0; i <= taskCounter; i++) {
+          const infotarea = await contract.methods.tasks(i).call();
 
-          if (infoProductos.nombres !== "") { 
-            const producto = {
-              nombre: infoProductos.nombre,
-              descripcion: infoProductos.descripcion,
-              existencias: infoProductos.existencias,
-              caducidad: infoProductos.caducidad,
-              precio: infoProductos.precio,
+          if (infotarea.title != "") {
+            const tarea = {
+              title: infotarea.title,
+              creatAtl: infotarea.creatAtl,
+              id: infotarea.id,
+              description: infotarea.description,
+              done: infotarea.done,
             };
-            //console.log(estudio);
-            arrayProductosRegistrados.push(producto);
+            //console.log(tarea);
+            arrayTarea.push(tarea);
           }
-        }
-        //console.log(arrayEstudio);
-        setListarInformacionEstudios(arrayProductosRegistrados);
+        };
+        //console.log(arrayTarea);
+        setListarInformacion(arrayTarea);
+
       } catch (error) {
-        console.error("Error al actualizar valor:", error);
+        console.error('Error al actualizar valor:', error);
+      }
+    }
+  };
+
+
+  const Autenticacion = async () => {
+    if(contract){
+      const taskCounter = await contract.methods.taskCounter().call();
+    for (let i = 0; i <= taskCounter; i++){
+      const temp = await contract.methods.tasks(i).call();
+      console.log(temp.done)
+      if(temp.description == account){
+        setCajero(true)
+      }
+
+      if (temp.description == account && temp.done == true){
+        setGerente(true)
+      }else{
+        //setAcceso(false)
+      }
+    }
+    }
+  };
+
+  const estadoInicialFormulario = {
+    title: "",
+    description: "",
+  };
+
+  const registrarInformacion = async (e) => {
+    e.preventDefault();
+    //console.log(formulario);
+
+    try {
+      const result = await contract.methods.createTask(formulario.title, formulario.description,).send({ from: account });
+      console.log(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const ManejarFormulario = ({ target: { name, value } }) => {
+
+    setFormulario({ ...formulario, [name]: value });
+
+  };
+
+  const [formulario, setFormulario] = useState(estadoInicialFormulario);
+
+  const cambioEstadoTarea = async (taskId) => {
+    if (contract && account) {
+      try {
+        await contract.methods.cambioEstado(taskId).send({ from: account });
+        ListarRegistros(); // Refresco
+      } catch (error) {
+        console.error('Error al cambiar estado:', error);
       }
     }
   };
@@ -98,6 +152,8 @@ function App() {
   useEffect(() => {
     ListarRegistros();
   }, [contract]);
+
+  useEffect(() => { Autenticacion(); }, [contract]);
 
   useEffect(() => {
     conectarWallet();
@@ -115,28 +171,34 @@ function App() {
   return (
     <Router>
       <div>
-        {Metamask ? (
-          <>
             <Menu
               conectarWallet={conectarWallet}
               direccion={accountshow}
               saldo={balanceshow}
+              Gerente={Gerente}
+              Cajero={Cajero}
+              Metamask={Metamask}
             ></Menu>
 
             <div className="centro">
+            {Gerente ? (
+          <>
               <Routes>
                 <Route
                   path="/form"
                   element={
                     <>
-                      <Formulario contrato={contract} direccion={account} />
-                      <Registros mostrarListados={ListarInformacionEstudios} />
+                      <Formulario registrarInformacion={registrarInformacion}
+                                  ManejarFormulario={ManejarFormulario}
+                                  formulario = {formulario} 
+                                  ListarInformacion = {ListarInformacion}
+                                  cambioEstadoTarea = {cambioEstadoTarea} />
                       {/* <Productos  /> */}
                     </>
                   }
                 />
-                <Route path="/menu" element={<Menus />} />
-                <Route path="/productos" element={<Productos conectarWallet={conectarWallet} mostrarListados={ListarInformacionEstudios} />} />
+                <Route path="/menu" element={<Menus Gerente={Gerente} Cajero={Cajero} />} />
+                <Route path="/productos" element={<Productos conectarWallet={conectarWallet}/>} />
                 <Route path="/ventas" element={<Ventas />} />
                 <Route path="/caja" element={<Caja />} />
                 <Route path="/recibos" element={<Recibos />} />
@@ -144,11 +206,29 @@ function App() {
                 <Route path="/control" element={<Control />} />
                 <Route path="/inicio" element={<Inicio />} />
               </Routes>
-            </div>
-          </>
+              </>
         ) : (
-          <div>Instala metamask</div>
+          <>
+          <Routes>
+          <Route path="/" element={<Caja />} />
+          <Route path="/caja" element={<Caja />} />
+            <Route
+                  path="/form"
+                  element={
+                    <>
+                      <Formulario registrarInformacion={registrarInformacion}
+                                  ManejarFormulario={ManejarFormulario}
+                                  formulario = {formulario} 
+                                  ListarInformacion = {ListarInformacion}
+                                  cambioEstadoTarea = {cambioEstadoTarea} />
+                      {/* <Productos  /> */}
+                    </>
+                  }
+                /></Routes>
+          </>
         )}
+            </div>
+          
       </div>
     </Router>
   );
