@@ -1,7 +1,7 @@
-import "./App.css";
+import "./index.css";
 import Menu from "./components/menu";
 import Formulario from "./components/formulario";
-import Menus from "./components/menus";
+import Menus from "./components/menuS";
 import Productos from "./components/productos";
 import Ventas from "./components/ventas";
 import Caja from "./components/caja";
@@ -125,7 +125,7 @@ function App() {
               saldo={balance}
             ></Menu>
 
-            <div className="centro">
+            <div>
               <Routes>
                 <Route
                   path="/form"

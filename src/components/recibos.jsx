@@ -1,6 +1,7 @@
 const Recibos = () => {
   return (
-    <div class="min-h-screen bg-gray-100 flex items-center justify-center">
+    //Modificado por Bladimir Lopez
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div class="max-w-4xl p-8 bg-white shadow-lg rounded-lg">
         <div class="text-xl font-bold mb-4">
           {" "}
@@ -29,13 +30,13 @@ const Recibos = () => {
               <td class="px-4 py-2 border">63</td>
               <td class="px-4 py-2 border">15/09/2023</td>
               <td class="px-4 py-2 border">160.90</td>
-              <td class="px-4 py-2 border">Fulano</td>
+              <td class="px-4 py-2 border">Bladimir</td>
             </tr>
             <tr>
               <td class="px-4 py-2 border">94</td>
               <td class="px-4 py-2 border">19/09/2023</td>
               <td class="px-4 py-2 border">65.32</td>
-              <td class="px-4 py-2 border">Mengano</td>
+              <td class="px-4 py-2 border">Humberto</td>
             </tr>
           </tbody>
         </table>

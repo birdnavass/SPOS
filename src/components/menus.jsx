@@ -7,8 +7,8 @@ import {
 
 const Menus = () => {
     return (
-    <div class="flex flex-col h-screen bg-white">
-        <div class="flex-1">
+    <div class="flex-col h-screen bg-white">
+        <div class="flex-auto">
           <div class="container mx-auto p-4">
             <div class="grid grid-cols-3 gap-4">
               <Link to="/productos"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">PRODUCTOS</div></Link>
