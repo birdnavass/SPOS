@@ -14,14 +14,14 @@ const Menu = (props) => {
 
                 <div className='contenedor'>
 
-                    <div className="logo">SivarP0$</div>
+                    <div className="text-white logo">SivarP0$</div>
 
                     <ul className="menu">
                     {props.Metamask ? (<>
                     
                         {props.direccion ? (<></>) : (
                             <>
-                                <button onClick={props.conectarWallet} className="boton" value={props.account}>Conectar wallet</button>
+                                <button  onClick={props.conectarWallet} className="boton" value={props.account}  >Conectar wallet</button>
                             </>)}
 
                         {props.direccion ? (

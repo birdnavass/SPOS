@@ -6,7 +6,7 @@ const Caja = () => {
       <div id="wrapper">
         <div id="content">
           <div className="container">
-            <div className="box G texto centro">
+            <div className="container w-12 h-40 p-5 ml-10 mr-10 text-lg bg-white text-justify-center bg-opacity-300">
               {" "}
               En esta parte, los comerciantes podrán procesar pagos de los
               clientes. Aquí es donde se registrarían los productos que el
@@ -16,9 +16,9 @@ const Caja = () => {
 
             <BarraBusqueda />
 
-            <div className="box G texto centro">
-              <div className="titulo centro">FACTURACION</div>
-
+            <div className="">
+              <div className="mt-3 text-lg text-center">FACTURACION</div>
+                       
               <table class="min-w-full">
                 <thead>
                   <tr>
@@ -60,7 +60,9 @@ const Caja = () => {
                 </tbody>
               </table>
 
-              <div className="px-4 py-2 mt-5 font-bold text-white bg-gray-400 rounded hover:bg-gray-600">PAGAR</div>
+              <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded mt-3 ml-[30rem]">
+                Ingresar
+              </button>
             </div>
           </div>
         </div>

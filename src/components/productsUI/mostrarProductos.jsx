@@ -23,12 +23,15 @@ const MostrarProductos = (props) => {
   }, []);
 
   return (
-    <>
-      <div className="flex items-center justify-center text-black text-3xl font-bold mb-4">
+    <> 
+    <div className="container w-12 h-40 p-5 ml-10 mr-10 text-lg bg-white text-justify-center bg-opacity-300">
+
+
+ <div className="flex items-center justify-center mb-4 text-3xl font-bold text-black">
         INVENTARIO
       </div>
 
-      <table className="table-auto w-full border-collapse">
+      <table className="w-full border-collapse table-auto">
         <thead>
           <tr className="bg-[#3853DA] text-white">
             <th className="py-2 text-lg">ID</th>
@@ -43,7 +46,7 @@ const MostrarProductos = (props) => {
 
         <tbody>
           {productos.map((product, index) => (
-            <tr className=" text-black" key={index}>
+            <tr className="text-black " key={index}>
               <td className="px-4 py-2 border border-black">{index + 1}</td>
               <td className="py-2 border border-black">
                 {props.editMode && props.editIndex === index ? (
@@ -107,7 +110,7 @@ const MostrarProductos = (props) => {
               </td>
 
               <td className="py-2 border border-black">
-                <td className=" ">
+                <td className="">
                   {props.editMode && props.editIndex === index ? (
                     <button
                       className=" bg-[#FFD658] rounded-[10px] p-4 text-lg "
@@ -137,6 +140,11 @@ const MostrarProductos = (props) => {
           ))}
         </tbody>
       </table>
+
+
+      
+    </div>
+     
     </>
   );
 };

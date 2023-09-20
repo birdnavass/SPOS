@@ -7,9 +7,9 @@ const Formulario = (props) => {
 
       <div id="wrapper">
         <div id="content">
-          <div className="container">
+          <div className="container flex-none">
 
-            <div className="box L texto centro">
+            <div className="max-w-md p-6 mx-auto mt-5 bg-white rounded shadow-md">
 
             <form onSubmit={props.registrarInformacion} className="formulario">
               <h2>Añadir usuario</h2>
@@ -18,13 +18,13 @@ const Formulario = (props) => {
               <button className="boton" type="submit">Añadir</button>
             </form>
             </div>
-            <div className="box M texto centro">
-            <table className='tftable'>
+            <div className="container flex w-4 bg-slate-50 ">
+            <table className=''>
               <thead>
                 <tr>
-                  <th>Rol</th>
-                  <th>Nombre</th>
-                  <th>Direccion</th>
+                  <th className="px-[2rem] py-3 bg-[#3853DA] text-white border-b border-gray-300">Rol</th>
+                  <th className="px-[2rem] py-3 bg-[#3853DA] text-white border-b border-gray-300">Nombre</th>
+                  <th className="px-[2rem] py-3 bg-[#3853DA] text-white border-b border-gray-300">Direccion</th>
                 </tr>
               </thead>
               <tbody>

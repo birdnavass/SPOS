@@ -6,39 +6,61 @@ const Ventas = () => {
             <div id="content">
                 <div class="container">
 
-                    <div class="box G texto centro">
+                    <div className="container w-12 h-40 p-5 ml-10 mr-10 text-lg bg-white text-justify-center bg-opacity-300">
                         Aquí los comerciantes podrán acceder a un registro detallado de las
                         ventas realizadas. Podrían ver información sobre cada transacción, como la fecha, los productos
                         vendidos y el monto total. También podrían encontrar informes y análisis de ventas, como gráficos de
                         tendencias y estadísticas clave.
                     </div>
+                    <div className="font-sans text-[2rem]">CORTES</div>
+                    
+                    <div  className="bg-white bg-opacity-300 container h-25  rounded-xl center w-12 flex max-w-[74rem] mx-60 ">
 
-                    <div class="box G texto">
+                    <table class="min-w-full">
+                <thead>
+                  <tr>
+                    <th class="px-[10rem] py-3 bg-[#3853DA] text-white border-b border-gray-300">
+                      FECHA
+                    </th>
+                    <th class="px-[10rem] py-3 bg-[#3853DA] text-white border-b border-gray-300">
+                      VENDIDO
+                    </th>
+                    <th class="px-[10rem] py-3 bg-[#3853DA] text-white border-b border-gray-300">
+                      MONTO
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="px-[10rem] py-4 whitespace-nowrap border-b border-gray-300">
+                      23/12/2023
+                    </td>
+                    <td class="px-[10rem] py-4 whitespace-nowrap border-b border-gray-300">
+                      76
+                    </td>
+                    <td class="px-[10rem] py-4 whitespace-nowrap border-b border-gray-300">
+                      756
+                    </td>
+                  </tr>
 
-                        <div class="titulo centro">CORTES</div>
-
-                        <table class="tftable">
-                            <thead>
-                                <th>FECHA</th>
-                                <th>VENDIDO</th>
-                                <th>MONTO</th>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>23/12/2023</td>
-                                    <td>76</td>
-                                    <td>764</td>
-                                </tr>
-                                <tr>
-                                    <td>24/12/2023</td>
-                                    <td>66</td>
-                                    <td>1048</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
+                  <tr>
+                    <td class="px-[10rem] py-4 whitespace-nowrap border-b border-gray-300">
+                      24/12/2023
+                    </td>
+                    <td class="px-[10rem] py-4 whitespace-nowrap border-b border-gray-300">
+                      66
+                    </td>
+                    <td class="px-[10rem] py-4 whitespace-nowrap border-b border-gray-300">
+                      1056
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
                     </div>
-
+                   
+                   
+                   
+                   
                 </div>
             </div>
         </div>

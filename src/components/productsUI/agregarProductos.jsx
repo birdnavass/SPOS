@@ -52,18 +52,20 @@ const AgregarProductos = (props) => {
 
   return (
     <>
-      <div className="flex items-center justify-center text-black text-3xl font-bold mb-4">
+      <div className="flex items-center justify-center mb-4 text-3xl font-bold text-black">
         INGRESAR
       </div>
-      <form onSubmit={handleSubmit}>
-        <table className="table-auto w-full border-collapse">
+      <div className="container w-12 h-40 p-5 ml-10 mr-10 text-lg bg-white text-justify-center bg-opacity-300" >
+
+<form onSubmit={handleSubmit}>
+        <table className="w-full border-collapse table-auto">
           <thead>
             <tr className="bg-[#3853DA] text-white">
-              <th className="px-4 py-2  text-lg">NOMBRE</th>
-              <th className="px-4 py-2  text-lg ">DESCRIPCION</th>
-              <th className="px-4 py-2  text-lg ">EXISTENCIAS</th>
-              <th className="px-4 py-2  text-lg">CADUCIDAD</th>
-              <th className="px-4 py-2  text-lg">PRECIO</th>
+              <th className="px-4 py-2 text-lg">NOMBRE</th>
+              <th className="px-4 py-2 text-lg ">DESCRIPCION</th>
+              <th className="px-4 py-2 text-lg ">EXISTENCIAS</th>
+              <th className="px-4 py-2 text-lg">CADUCIDAD</th>
+              <th className="px-4 py-2 text-lg">PRECIO</th>
             </tr>
           </thead>
           <tbody>
@@ -122,7 +124,7 @@ const AgregarProductos = (props) => {
               />
             </td>
 
-            <td className="px-4 py-2 border border-black">
+            <td className="px-4 py-2 border ">
               <button
                 className="block bg-[#FFD658] rounded-[10px] p-4 text-xl font-sans font-medium"
                 type="submit"
@@ -133,6 +135,10 @@ const AgregarProductos = (props) => {
           </tbody>
         </table>
       </form>
+
+        
+      </div>
+      
     </>
   );
 };

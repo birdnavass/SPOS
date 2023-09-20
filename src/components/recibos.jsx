@@ -17,25 +17,25 @@ const Recibos = () => {
         </div>
         <table class="w-full border-collapse">
           <thead>
-            <tr class="bg-gray-200">
-              <th class="px-4 py-2 border">ID</th>
-              <th class="px-4 py-2 border">FECHA</th>
-              <th class="px-4 py-2 border">MONTO</th>
-              <th class="px-4 py-2 border">CLIENTE</th>
+            <tr class="bg-[#3853DA]">
+              <th class="px-4 py-2 border text-white">ID</th>
+              <th class="px-4 py-2 border text-white">FECHA</th>
+              <th class="px-4 py-2 border text-white">MONTO</th>
+              <th class="px-4 py-2 border text-white">CLIENTE</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="px-4 py-2 border">63</td>
-              <td class="px-4 py-2 border">15/09/2023</td>
-              <td class="px-4 py-2 border">160.90</td>
-              <td class="px-4 py-2 border">Fulano</td>
+              <td class="px-4 py-2 bordertext-white">63</td>
+              <td class="px-4 py-2 border ">15/09/2023</td>
+              <td class="px-4 py-2 bordertext-white">160.90</td>
+              <td class="px-4 py-2 bordertext-white">Fulano</td>
             </tr>
             <tr>
-              <td class="px-4 py-2 border">94</td>
-              <td class="px-4 py-2 border">19/09/2023</td>
-              <td class="px-4 py-2 border">65.32</td>
-              <td class="px-4 py-2 border">Mengano</td>
+              <td class="px-4 py-2 bordertext-white">94</td>
+              <td class="px-4 py-2 bordertext-white">19/09/2023</td>
+              <td class="px-4 py-2 bordertext-white">65.32</td>
+              <td class="px-4 py-2 bordertext-white">Mengano</td>
             </tr>
           </tbody>
         </table>
