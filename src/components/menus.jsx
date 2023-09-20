@@ -14,7 +14,7 @@ const Menus = () => {
               <Link to="/productos"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">PRODUCTOS</div></Link>
               <Link to="/ventas"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">VENTAS</div></Link>
               <Link to="/caja"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">CAJA</div></Link>
-              <Link to="/recibos"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">RECIBOS</div></Link>
+              <Link to="/factura/mostrarFactura"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">RECIBOS</div></Link>
               <Link to="/control"><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">PANEL DE CONTROL</div></Link>
               <Link to=""><div class="text-center bg-[#7182C4] text-black p-6 rounded p-10">CERRAR SESION</div></Link>
             </div>

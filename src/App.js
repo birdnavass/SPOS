@@ -5,10 +5,12 @@ import Menus from "./components/menuS";
 import Productos from "./components/productos";
 import Ventas from "./components/ventas";
 import Caja from "./components/caja";
-import Recibos from "./components/recibos";
+//import Recibos from "./components/recibos";
 import Control from "./components/control";
 import Inicio from "./components/inicio";
 import Registros from "./components/registros";
+//lo siguiente import por Bladimir-development
+import Factura from "./components/factura/mostrarFactura"
 
 import { useEffect, useState } from "react";
 import Web3 from "web3";
@@ -140,7 +142,7 @@ function App() {
                 <Route path="/productos" element={<Productos />} />
                 <Route path="/ventas" element={<Ventas />} />
                 <Route path="/caja" element={<Caja />} />
-                <Route path="/recibos" element={<Recibos />} />
+                <Route path="/factura/mostrarFactura" element={<Factura/>} />
                 <Route path="/control" element={<Control />} />
                 <Route path="/control" element={<Control />} />
                 <Route path="/inicio" element={<Inicio />} />
