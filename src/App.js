@@ -1,7 +1,7 @@
 import "./index.css";
 import Menu from "./components/menu";
 import Formulario from "./components/formulario";
-import Menus from "./components/menuS";
+import Menus from "./components/menus";
 import Productos from "./components/productos";
 import Ventas from "./components/ventas";
 import Caja from "./components/caja";
@@ -10,7 +10,9 @@ import Control from "./components/control";
 import Inicio from "./components/inicio";
 import Registros from "./components/registros";
 //lo siguiente import por Bladimir-development
-import Factura from "./components/factura/mostrarFactura"
+import MFactura from "./components/factura/mostrarFactura"
+import CFactura from "./components/factura/crearFactura"
+import ModFactura from "./components/factura/modificarFactura"
 
 import { useEffect, useState } from "react";
 import Web3 from "web3";
@@ -142,7 +144,9 @@ function App() {
                 <Route path="/productos" element={<Productos />} />
                 <Route path="/ventas" element={<Ventas />} />
                 <Route path="/caja" element={<Caja />} />
-                <Route path="/factura/mostrarFactura" element={<Factura/>} />
+                <Route path="/factura/mostrarFactura" element={<MFactura/>} />
+                <Route path="/factura/crearFactura" element={<CFactura/>} />
+                <Route path="/factura/modificarFactura/:id" element={<ModFactura/>} />
                 <Route path="/control" element={<Control />} />
                 <Route path="/control" element={<Control />} />
                 <Route path="/inicio" element={<Inicio />} />
