@@ -8,7 +8,7 @@ const MostrarProductos = (props) => {
   const contratoProductos = props.contract;
 
   const ListarProductos = async () => {
-    console.log("contract==>", contratoProductos);
+    console.log("contract==>", props.contract);
     if (contratoProductos) {
       try {
         const contadorProductos = await contratoProductos.methods

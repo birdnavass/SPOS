@@ -1,5 +1,5 @@
-import AgregarProducto from "./productsUI/agregarProductos";
-import MostrarProductos from "./productsUI/mostrarProductos";
+import AgregarProducto from "./agregarProductos";
+import MostrarProductos from "./mostrarProductos";
 
 const Productos = (props) => {
   return (

@@ -2,16 +2,13 @@ import "./App.css";
 import Menu from "./components/menu";
 import Formulario from "./components/formulario";
 import Menus from "./components/menus";
-import Productos from "./components/productos";
+import Productos from "./components/productsUI/productos";
 import Ventas from "./components/ventas";
 import Caja from "./components/caja";
 import Recibos from "./components/recibos";
 import Control from "./components/control";
 import Inicio from "./components/inicio";
 import smartContractRegistro from "./registro.json";
-
-
-
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -48,11 +45,11 @@ function App() {
 
         setBalance(balanceEth);
         setBalanceshow(balanceEth.slice(0, 5));
-
-        const contractInstance = new web3Instance.eth.Contract(
-          smartContractRegistro,
-          smartContractRegistro && "0x1bB5bf909d1200fb4730d899BAd7Ab0aE8487B0b"
-        );
+        
+                const contractInstance = new web3Instance.eth.Contract(
+                  smartContractRegistro,
+                  smartContractRegistro && "0x33dBB3Be708e6CCa1622f6362E18d8f6651b1605"
+                );
         setContract(contractInstance);
         // console.log("contractInstance ==>", contractInstance);
       } catch (error) {
@@ -171,6 +168,7 @@ function App() {
   }, []);
 
   return (
+    
     <Router>
       <div>
             <Menu
@@ -183,6 +181,7 @@ function App() {
             ></Menu>
 
             <div className="centro">
+            
             {Gerente ? (
           <>
               <Routes>
@@ -207,7 +206,10 @@ function App() {
                 <Route path="/control" element={<Control />} />
                 <Route path="/control" element={<Control />} />
                 <Route path="/inicio" element={<Inicio />} />
+                
               </Routes>
+              
+
               </>
         ) : (
           <>
