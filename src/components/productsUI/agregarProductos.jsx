@@ -2,53 +2,42 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 
 const AgregarProductos = (props) => {
-  const [producto, setProducto] = useState({
-    nombre: "",
-    descripcion: "",
-    existencias: "",
-    caducidad: "",
-    precio: "",
-  });
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const response = await fetch("http://localhost:3000/productos", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(producto),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data.message); // Mensaje del servidor
-      } else {
-        console.error("Error al agregar el producto.");
-        Swal.fire({
-          title: "Error",
-          text: "Hubo un error al agregar el producto.",
-          icon: "error",
-          confirmButtonText: "OK",
-        });
+  const estadoInicialProductos = {
+      name: "",
+      categoria: "",
+      titulo: "",
+      fechaInicio: "",
+      fechaFin: "",
+    };
+  
+    const registrarInformacion = async (e) => {
+      e.preventDefault();
+      console.log(formulario);
+  
+      try {
+        const result = await props.contrato.methods
+          .crearRegistro(
+            formulario.categoria,
+            formulario.fechaInicio,
+            formulario.fechaFin,
+            formulario.name,
+            formulario.titulo
+          )
+          .send({ from: props.direccion });
+        console.log(result);
+      } catch (error) {
+        console.error(error);
+        
       }
-    } catch (error) {
-      console.error("Error de red:", error);
-      Swal.fire({
-        title: "Error",
-        text: "Hubo un error de red al agregar el producto.",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProducto({ ...producto, [name]: value });
-  };
+    };
+  
+    const ManejarFormulario = ({ target: { name, value } }) => {
+      console.log(name, value);
+      setFormulario({ ...formulario, [name]: value });
+    };
+  
+    const [formulario, setFormulario] = useState(estadoInicialProductos);
 
   return (
     <>
@@ -57,7 +46,7 @@ const AgregarProductos = (props) => {
       </div>
       <div className="container w-12 h-40 p-5 ml-10 mr-10 text-lg bg-white text-justify-center bg-opacity-300" >
 
-<form onSubmit={handleSubmit}>
+{/* <form onSubmit={handleSubmit}>
         <table className="w-full border-collapse table-auto">
           <thead>
             <tr className="bg-[#3853DA] text-white">
@@ -134,7 +123,7 @@ const AgregarProductos = (props) => {
             </td>
           </tbody>
         </table>
-      </form>
+      </form> */}
 
         
       </div>
@@ -144,3 +133,51 @@ const AgregarProductos = (props) => {
 };
 
 export default AgregarProductos;
+
+// const [producto, setProducto] = useState({
+//   nombre: "",
+//   descripcion: "",
+//   existencias: "",
+//   caducidad: "",
+//   precio: "",
+// });
+
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   try {
+//     const response = await fetch("http://localhost:3000/productos", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(producto),
+//     });
+
+//     if (response.ok) {
+//       const data = await response.json();
+//       console.log(data.message); // Mensaje del servidor
+//     } else {
+//       console.error("Error al agregar el producto.");
+//       Swal.fire({
+//         title: "Error",
+//         text: "Hubo un error al agregar el producto.",
+//         icon: "error",
+//         confirmButtonText: "OK",
+//       });
+//     }
+//   } catch (error) {
+//     console.error("Error de red:", error);
+//     Swal.fire({
+//       title: "Error",
+//       text: "Hubo un error de red al agregar el producto.",
+//       icon: "error",
+//       confirmButtonText: "OK",
+//     });
+//   }
+// };
+
+// const handleChange = (e) => {
+//   const { name, value } = e.target;
+//   setProducto({ ...producto, [name]: value });
+// };

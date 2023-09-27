@@ -51,7 +51,7 @@ function App() {
 
         const contractInstance = new web3Instance.eth.Contract(
           smartContractRegistro,
-          smartContractRegistro && "0xa067b8b63e809eCdDdD51a99d255100551e28F42"
+          smartContractRegistro && "0x1bB5bf909d1200fb4730d899BAd7Ab0aE8487B0b"
         );
         setContract(contractInstance);
         // console.log("contractInstance ==>", contractInstance);
@@ -200,7 +200,7 @@ function App() {
                   }
                 />
                 <Route path="/menu" element={<Menus Gerente={Gerente} Cajero={Cajero} />} />
-                <Route path="/productos" element={<Productos conectarWallet={conectarWallet}/>} />
+                <Route path="/productos" element={<Productos contract={contract} conectarWallet={conectarWallet} direccion={accountshow} saldo={balanceshow} />} />
                 <Route path="/ventas" element={<Ventas />} />
                 <Route path="/caja" element={<Caja />} />
                 <Route path="/recibos" element={<Recibos />} />

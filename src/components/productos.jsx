@@ -6,7 +6,7 @@ const Productos = (props) => {
     <div id="wrapper">
       <div id="content">
         <div className="container">
-          <AgregarProducto />
+          <AgregarProducto  />
 
           <MostrarProductos />
         </div>
