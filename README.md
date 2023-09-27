@@ -8,3 +8,5 @@ La plataforma permitirá a los comercios:
 
 Todo esto a través de una interfaz fácil de usar.
 
+**Rama guardada que utiliza base de datos tradicional**
+
