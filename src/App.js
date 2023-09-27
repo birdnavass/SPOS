@@ -10,6 +10,8 @@ import Control from "./components/control";
 import Inicio from "./components/inicio";
 import smartContractRegistro from "./registro.json";
 
+
+
 import { useEffect, useState } from "react";
 import Web3 from "web3";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
