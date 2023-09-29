@@ -39,6 +39,8 @@ const AgregarProductos = (props) => {
   
     const [formulario, setFormulario] = useState(estadoInicialProductos);
 
+      
+
   return (
     <>
       <div className="flex items-center justify-center mb-4 text-3xl font-bold text-black">
