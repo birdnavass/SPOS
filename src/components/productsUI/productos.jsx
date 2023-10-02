@@ -6,9 +6,17 @@ const Productos = (props) => {
     <div id="wrapper">
       <div id="content">
         <div className="container">
-          <AgregarProducto  />
+          <AgregarProducto
+            contract={props.contract}
+            conectarWallet={props.conectarWallet}
+            account={props.account}
+            saldo={props.balanceshow}
+          />
 
-          <MostrarProductos />
+          <MostrarProductos
+            contract={props.contract}
+            account={props.account}
+          />
         </div>
       </div>
     </div>

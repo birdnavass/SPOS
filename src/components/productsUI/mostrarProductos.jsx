@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faTrashCan, faPenToSquare, faFileCircleCheck} from "@fortawesome/free-solid-svg-icons";
+import {
+  faTrashCan,
+  faPenToSquare,
+  faFileCircleCheck,
+} from "@fortawesome/free-solid-svg-icons";
 
 const MostrarProductos = (props) => {
   const [productos, setProductos] = useState([]);
@@ -23,14 +27,14 @@ const MostrarProductos = (props) => {
             .call();
           console.log(infoProductos);
 
-          if (infoProductos.name != " ") {
+          if (infoProductos.name !== " ") {
             const nuevoProducto = {
+              id: infoProductos.id,
               name: infoProductos.name,
               description: infoProductos.description,
               stock: infoProductos.stock,
               expirationDate: infoProductos.expirationDate,
               price: infoProductos.price,
-              id: infoProductos.id,
             };
 
             arrayProductos.push(nuevoProducto);
@@ -98,7 +102,7 @@ const MostrarProductos = (props) => {
 
           <tbody>
             {productos.map((product, index) => (
-              <tr className="text-black" key={index}>
+              <>
                 <td className="px-4 py-2 border border-black">{product.id}</td>
                 <td className="py-2 border border-black">{product.name}</td>
                 <td className="py-2 border border-black">
@@ -109,23 +113,22 @@ const MostrarProductos = (props) => {
                   {product.expirationDate}
                 </td>
                 <td className="py-2 border border-black">{product.price}</td>
+
                 <td className="py-2 border border-black">
-                  <td className="py-2 border border-black">
-                    <button
-                      className="bg-[#FFD658] rounded-[10px] p-4 text-lg"
-                      onClick={() => onEdit(product.id)} // Debes definir la función onEdit
-                    >
-                      <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
-                    </button>
-                    <button
-                      className="bg-[#FFD658] rounded-[10px] p-4 text-lg"
-                      onClick={() => onDeleteProduct(product.id)} // Debes definir la función onDeleteProduct
-                    >
-                      <FontAwesomeIcon icon={faTrashCan} size="2xl" />
-                    </button>
-                  </td>
+                  <button
+                    className="bg-[#FFD658] rounded-[10px] p-4 text-lg"
+                    onClick={() => onEdit(product.id)} // Debes definir la función onEdit
+                  >
+                    <FontAwesomeIcon icon={faPenToSquare} size="2xl" />
+                  </button>
+                  <button
+                    className="bg-[#FFD658] rounded-[10px] p-4 text-lg"
+                    onClick={() => onDeleteProduct(product.id)} // Debes definir la función onDeleteProduct
+                  >
+                    <FontAwesomeIcon icon={faTrashCan} size="2xl" />
+                  </button>
                 </td>
-              </tr>
+              </>
             ))}
           </tbody>
         </table>
@@ -135,7 +138,6 @@ const MostrarProductos = (props) => {
 };
 
 export default MostrarProductos;
-
 
 // {productos.map((product, index) => (
 //   <tr className="text-black " key={index}>
